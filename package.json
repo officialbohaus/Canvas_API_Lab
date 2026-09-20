@@ -1,0 +1,25 @@
+{
+  "name": "canvas_api_lab",
+  "version": "1.0.0",
+  "description": "Minilab showcasing REST usage from Canvas",
+  "homepage": "https://github.com/officialbohaus/Canvas_API_Lab#readme",
+  "bugs": {
+    "url": "https://github.com/officialbohaus/Canvas_API_Lab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/officialbohaus/Canvas_API_Lab.git"
+  },
+  "license": "MIT",
+  "author": "officialbohaus",
+  "type": "commonjs",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}
