@@ -1,0 +1,85 @@
+* { box-sizing: border-box; }
+
+:root {
+    --ink: #17221d;
+    --muted: #6b756e;
+    --paper: #f4f1e8;
+    --surface: #fffdf7;
+    --line: #d9ddd2;
+    --green: #275c46;
+    --lime: #c7e56d;
+    --coral: #e77f62;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: Manrope, sans-serif;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0 0 auto;
+    height: 8px;
+    background: var(--lime);
+}
+
+.shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 36px 0 72px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: 14px; font-weight: 800; letter-spacing: -.02em; text-decoration: none; }
+.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; color: var(--surface); background: var(--green); font: 500 12px 'DM Mono', monospace; }
+.status-pill, .course-label { color: var(--muted); font: 11px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
+.status-pill { display: flex; align-items: center; gap: 8px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); }
+.intro { display: flex; align-items: end; justify-content: space-between; gap: 32px; padding-bottom: 64px; }
+.eyebrow { margin: 0 0 16px; color: var(--green); font: 500 11px 'DM Mono', monospace; letter-spacing: .12em; }
+h1, h2 { margin: 0; letter-spacing: -.065em; }
+h1 { font-size: clamp(44px, 7vw, 82px); line-height: .98; }
+h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
+h2 { font-size: 36px; }
+.lede { max-width: 390px; margin: 24px 0 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+.refresh-button { border: 0; padding: 14px 18px; color: var(--surface); background: var(--green); cursor: pointer; font: 700 13px Manrope, sans-serif; }
+.refresh-button:hover { background: var(--ink); }
+.refresh-button span { margin-right: 7px; font-size: 18px; vertical-align: -1px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.summary-item { display: flex; flex-direction: column; gap: 12px; padding: 22px 24px; border-right: 1px solid var(--line); }
+.summary-item:first-child { padding-left: 0; }
+.summary-item:last-child { border-right: 0; }
+.summary-label { color: var(--muted); font: 11px 'DM Mono', monospace; letter-spacing: .08em; }
+.summary strong { font-size: 22px; }
+.todo-section { padding: 76px 0 96px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; padding-bottom: 24px; border-bottom: 2px solid var(--ink); }
+.course-picker { display: grid; gap: 8px; min-width: min(360px, 45%); }
+.course-controls { display: flex; gap: 8px; }
+.course-picker select { min-width: 0; flex: 1; border: 1px solid var(--line); padding: 12px 36px 12px 12px; color: var(--ink); background: var(--surface); font: 600 13px Manrope, sans-serif; }
+.course-submit { border: 0; padding: 0 16px; color: var(--surface); background: var(--green); cursor: pointer; font: 700 13px Manrope, sans-serif; }
+.course-submit:hover { background: var(--ink); }
+.course-picker select:focus { outline: 2px solid var(--lime); outline-offset: 2px; }
+.message { padding: 32px 0; color: var(--muted); font-size: 14px; }
+.message.error { color: #a34b38; }
+.todo-list { display: grid; gap: 1px; background: var(--line); }
+.todo { display: grid; grid-template-columns: 42px 1fr auto; gap: 20px; align-items: center; padding: 24px; background: var(--surface); }
+.todo-number { color: var(--coral); font: 500 12px 'DM Mono', monospace; }
+.todo-title { margin: 0 0 7px; font-size: 16px; font-weight: 700; }
+.todo-meta { margin: 0; color: var(--muted); font: 12px 'DM Mono', monospace; }
+.todo-due { min-width: 120px; color: var(--green); text-align: right; font: 500 12px 'DM Mono', monospace; }
+.todo-due.overdue { color: var(--coral); }
+.empty { padding: 52px 24px; background: var(--surface); color: var(--muted); text-align: center; }
+
+@media (max-width: 680px) {
+    .shell { width: min(100% - 32px, 1120px); }
+    .topbar { padding: 28px 0 56px; }
+    .status-pill { display: none; }
+    .intro { display: block; padding-bottom: 48px; }
+    .refresh-button { margin-top: 28px; }
+    .summary-item { padding: 18px 10px; }
+    .summary-item:first-child { padding-left: 0; }
+    .summary strong { font-size: 17px; }
+    .todo-section { padding-top: 56px; }
+    .section-heading { align-items: start; display: block; }
+    .course-picker { min-width: 100%; margin-top: 20px; }
+    .todo { grid-template-columns: 28px 1fr; gap: 14px; padding: 20px 16px; }
+    .todo-due { grid-column: 2; min-width: 0; text-align: left; }
+}

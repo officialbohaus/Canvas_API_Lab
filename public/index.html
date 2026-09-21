@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas Todo Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="/" aria-label="Canvas Todo Board home">
+                <span class="brand-mark">CT</span>
+                <span>Canvas Todo Board</span>
+            </a>
+            <span class="status-pill"><span class="status-dot"></span>Live course feed</span>
+        </header>
+
+        <section class="intro">
+            <div>
+                <p class="eyebrow">COURSE CONTROL CENTER</p>
+                <h1>Keep the next thing<br><em>in view.</em></h1>
+                <p class="lede">A focused view of the work waiting for you in Canvas.</p>
+            </div>
+            <button id="refresh-button" class="refresh-button" type="button">
+                <span aria-hidden="true">↻</span> Refresh todos
+            </button>
+        </section>
+
+        <section class="summary" aria-label="Todo summary">
+            <div class="summary-item"><span class="summary-label">OPEN ITEMS</span><strong id="todo-count">—</strong></div>
+            <div class="summary-item"><span class="summary-label">NEXT DUE</span><strong id="next-due">—</strong></div>
+            <div class="summary-item"><span class="summary-label">LAST SYNC</span><strong id="last-sync">—</strong></div>
+        </section>
+
+        <section class="todo-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR QUEUE</p>
+                    <h2>Course todos</h2>
+                </div>
+                <form id="course-form" class="course-picker">
+                    <label class="course-label" for="course-select">SELECT COURSE</label>
+                    <div class="course-controls">
+                        <select id="course-select" aria-label="Select a Canvas course" disabled>
+                            <option>Loading courses...</option>
+                        </select>
+                        <button class="course-submit" type="submit">View</button>
+                    </div>
+                </form>
+            </div>
+            <div id="message" class="message" role="status">Loading your course todos...</div>
+            <div id="todo-list" class="todo-list" aria-live="polite"></div>
+        </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+</body>
+</html>
